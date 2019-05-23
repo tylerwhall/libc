@@ -147,6 +147,9 @@ cfg_if! {
 
         mod wasi;
         pub use wasi::*;
+    } else if #[cfg(target_os = "zephyr")] {
+        mod zephyr;
+        pub use zephyr::*;
     } else {
         // non-supported targets: empty...
     }
