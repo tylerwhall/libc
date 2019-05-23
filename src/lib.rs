@@ -184,6 +184,14 @@ cfg_if! {
         pub use crate::xous::*;
 
         prelude!();
+    } else if #[cfg(target_os = "zephyr")] {
+        mod fixed_width_ints;
+        pub use crate::fixed_width_ints::*;
+
+        mod zephyr;
+        pub use crate::zephyr::*;
+
+        prelude!();
     } else {
         // non-supported targets: empty...
     }
