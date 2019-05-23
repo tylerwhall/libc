@@ -159,6 +159,12 @@ cfg_if! {
 
         mod xous;
         pub use xous::*;
+    } else if #[cfg(target_os = "zephyr")] {
+        mod fixed_width_ints;
+        pub use fixed_width_ints::*;
+
+        mod zephyr;
+        pub use zephyr::*;
     } else {
         // non-supported targets: empty...
     }
