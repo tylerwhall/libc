@@ -152,6 +152,14 @@ cfg_if! {
         pub use crate::xous::*;
 
         prelude!();
+    } else if #[cfg(target_os = "zephyr")] {
+        mod primitives;
+        pub use crate::primitives::*;
+
+        mod zephyr;
+        pub use crate::zephyr::*;
+
+        prelude!();
     } else {
         // non-supported targets: empty...
     }
