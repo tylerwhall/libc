@@ -3,9 +3,9 @@
 //! More functions and definitions can be found in the more specific modules
 //! according to the platform in question.
 
-#[cfg(target_arch = "aarch64")]
+#[cfg(any(target_arch = "aarch64", target_arch = "riscv64"))]
 pub type c_char = u8;
-#[cfg(not(target_arch = "aarch64"))]
+#[cfg(not(any(target_arch = "aarch64", target_arch = "riscv64")))]
 pub type c_char = i8;
 pub type c_schar = i8;
 pub type c_uchar = u8;
